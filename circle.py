@@ -1,3 +1,5 @@
+is_running =True
+
 circles = []
 
 circle = int(input("How many circles do you want? "))
@@ -40,14 +42,18 @@ for (a, b, c) in triangles:
     totalTriangleSize += a + b + c
     print(f"your total triangle size is {totalTriangleSize} cm")
 
-do = input("do you want to calculate the size of both with each other Y/N")
+while is_running:
+    do = input("Do you want to calculate the size of both together? Y/N: ")
 
-if do.lower() == "y":
-    totaleSize = totalCircleSize + totalTriangleSize
-    print(f"the totale size is {totaleSize} cm")
+    if do.lower() != "y" and do.lower() != "n":
+        print("Invalid answer, please enter Y or N.")
+    elif do.lower() == "y":
+        totalSize = totalCircleSize + totalTriangleSize
+        print(f"The total size is {totalSize} cm")
+        is_running = False
+    elif do.lower() == "n":
+        print("You quit")
+        is_running = False
+ 
 
-elif do.lower() == "n":
-    print("you quit")
-
-else:
-    print("invalide answer")
+    
